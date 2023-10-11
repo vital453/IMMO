@@ -68,7 +68,7 @@ export default function Home() {
   if (width < 500) {
     return (
       <>
-        <Particle />
+        {/* <Particle /> */}
         <div className="h-full select-none">
           <Nav />
           {/* <Navi /> */}
@@ -172,7 +172,7 @@ export default function Home() {
   } else {
     return (
       <>
-        <Particle />
+        {/* <Particle /> */}
         <Nav />
         <Hero />
         <div className="w-full flex flex-col justify-center items-center">
@@ -188,7 +188,7 @@ export default function Home() {
             </div>
             <div className="w-full  px-4 md:px-10">
               <div className="flex flex-wrap justify-center items-center gap-3 family">
-                {Categotydata.map((data, i) => {
+                {Categotydata.map((data, i) => { 
                   return <Villecard />;
                 })}
               </div>

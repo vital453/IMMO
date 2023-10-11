@@ -15,11 +15,11 @@ export default function Nav() {
     {
       link: "/home",
       icon: TbSmartHome,
-      title: "Home",
+      title: "Acceuil",
     },
     {
       link: "/a_louer",
-      icon: BiSearch,
+      icon: BiSearch, 
       // icon: BiUser,
       title: "Rechercher",
     },
@@ -29,9 +29,9 @@ export default function Nav() {
       title: "Publication",
     },
     {
-      link: "/historique",
+      link: "/societe",
       icon: BsFileText,
-      title: "Historique",
+      title: "Notre Societe",
     },
     // {
     //   link: "/contact",

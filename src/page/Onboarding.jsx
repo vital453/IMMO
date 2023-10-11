@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 
 import {
   Navigation,
-  Pagination, 
+  Pagination,
   Scrollbar,
   A11y,
   Autoplay,
@@ -97,7 +97,53 @@ export default function Onboarding() {
       </div>
     );
   } else {
-    return <div>Home</div>;
+    return (
+      <div className="h-screen">
+        <Swiper
+          pagination={{
+            clickable: true,
+          }}
+          data-aos="fade-left"
+          spaceBetween={20}
+          //   loop={true}
+          navigation
+          grabCursor={true}
+          //   autoplay={{ delay: 3000 }}
+          onSwiper={(swiper) => console.log(swiper)}
+          modules={[Navigation, Pagination, Autoplay]}
+          className="h-full w-full flex "
+          onSlideChange={handlechange}
+        >
+          <SwiperSlide
+            className="h-full w-full"
+            // onClick={() => {
+            //   setfullimagg(content.image);
+            //   setfullimag(true);
+            // }}
+          >
+            <Screen1 />
+          </SwiperSlide>
+          <SwiperSlide
+            className="h-full w-full"
+            // onClick={() => {
+            //   setfullimagg(content.image);
+            //   setfullimag(true);
+            // }}
+          >
+            <Screen2 />
+          </SwiperSlide>
+          <SwiperSlide
+            className="h-full w-full"
+            // onClick={() => {
+            //   setfullimagg(content.image);
+            //   setfullimag(true);
+            // }}
+          >
+            <Screen3 />
+          </SwiperSlide>
+        </Swiper>
+      </div>
+    );
   }
 }
 

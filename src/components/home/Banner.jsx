@@ -6,8 +6,15 @@ export default function Banner() {
   const [change, setchange] = useState("À lOUER");
   return (
     <div className="w-full px-3 py-4 space-y-4 family">
-      <div className="w-full justify-center items-center text-center">
+      {/* <div className="w-full justify-center items-center text-center">
         <span className="text-2xl text-gray-800">Bienvenue sur Immoweb</span>
+      </div> */}
+      <div className="mx-auto max-w-7xl py-11">
+        <h2 className="pb-4 text-4xl font-bold text-center text-gray-800 dark:text-gray-400">
+          Bienvenue sur  Immo
+        </h2>
+
+        <div className="mx-auto mb-0 border-b border-red-700 w-44 dark:border-gray-400"></div>
       </div>
       <div className="w-full flex flex-col justify-center items-center">
         <div className="bg-white px-2 py-2 w-full flex justify-center items-center rounded-xl">

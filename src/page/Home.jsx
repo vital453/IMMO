@@ -153,10 +153,12 @@ export default function Home() {
           <div className="h-20"></div>
         </div> */}
           <div className="w-full">
-            <div className="w-full flex justify-start items-center px-4 md:px-10 mb-4">
-              <span className="text-2xl text-neutral-800/70 font-semibold">
-                Recherche par ville à vendre
-              </span>
+            <div className="mx-auto max-w-7xl py-11">
+              <h2 className="pb-4 text-4xl font-bold text-center text-gray-800 dark:text-gray-400">
+                Recherche par ville
+              </h2>
+
+              <div className="mx-auto mb-16 border-b border-red-700 w-44 dark:border-gray-400"></div>
             </div>
             <div className="w-full  px-4 md:px-10">
               <div className="flex flex-wrap justify-center items-center gap-3 family">
@@ -236,10 +238,17 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="w-[100%] flex justify-start items-center px-3">
+          {/* <div className="w-[100%] flex justify-start items-center px-3">
             <span className="text-xl text-neutral-800/70 font-semibold">
               Recommander pour vous !
             </span>
+          </div> */}
+          <div className="mx-auto max-w-7xl py-11">
+            <h2 className="pb-4 text-4xl font-bold text-center text-gray-800 dark:text-gray-400">
+              Recommander pour vous !
+            </h2>
+
+            <div className="mx-auto mb-16 border-b border-red-700 w-44 dark:border-gray-400"></div>
           </div>
 
           <div className="w-[100%] horiz family">

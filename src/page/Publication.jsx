@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/no-unescaped-entities */
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Nav from "../components/Nav";
 import { appartment, building, home, land, meeting } from "../../public";
 import { Button } from "@material-tailwind/react";
@@ -13,6 +13,7 @@ import { Button } from "@material-tailwind/react";
 // import Typography from "@mui/material/Typography";
 // import Etape1 from "../components/post/Etape1";
 import { Footer } from "../components/Footer";
+import { useLocation } from "react-router";
 
 export const categorieproduct = [
   {
@@ -52,6 +53,11 @@ export default function Publication() {
   const [selection1, setselection1] = useState(change);
   const [selection2, setselection2] = useState("Maison");
   const [selection3, setselection3] = useState("Eau");
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [pathname]);
   // ************************************************************* stepper exemple fonction **************
   // const [activeStep, setActiveStep] = useState(0);
   // console.log(clickk, "clique");
@@ -807,13 +813,13 @@ export default function Publication() {
               </div>
             </div>
           </div>
-          <div className="w-full flex justify-center items-center px-4"
-          onClick={()=>setchange1(!change1)}
+          <div
+            className="w-full flex justify-center items-center px-4"
+            onClick={() => setchange1(!change1)}
           >
             <button
               href=" "
               className="w-full md:w-72 linear mt-4  flex items-center justify-center rounded-xl bg-yellow-400/75  py-2 text-base font-medium text-white transition duration-200 hover:bg-yellow-400/75 active:bg-yellow-400/75 dark:bg-brand-400 dark:text-white dark:hover:bg-brand-300 dark:active:bg-brand-200"
-            
             >
               Sauvegarder
             </button>
@@ -889,7 +895,9 @@ export default function Publication() {
             className="w-full md:w-72 flex items-center justify-center px-4 mb-4"
             onClick={() => setchange1(true)}
           >
-            <Button color="green" className="w-full">Commencer</Button>
+            <Button color="green" className="w-full">
+              Commencer
+            </Button>
           </div>
         </div>
       )}

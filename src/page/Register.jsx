@@ -1,11 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect } from "react";
 import InputField from "../components/fields/InputField";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Register() {
+  const {pathname} = useLocation();
+    
+  useEffect(()=>{
+      window.scroll(0,0)
+  },[pathname])
   return (
     <div className="mt-16 mb-16 flex h-full w-full items-center justify-center px-10 md:mx-0 md:px-0 lg:mb-10 lg:items-center lg:justify-start family">
       {/* Sign in section */}

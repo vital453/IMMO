@@ -7,12 +7,19 @@ import {
   PopoverContent,
   Button,
 } from "@material-tailwind/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Categotydata } from "./Home";
 import Card from "../components/Card";
 import { Footer } from "../components/Footer";
+import { useLocation } from 'react-router-dom'
+
 export default function Alouer() {
   const [close, setclose] = useState(false);
+  const {pathname} = useLocation();
+    
+  useEffect(()=>{
+      window.scroll(0,0)
+  },[pathname])
   return (
     <div>
       <Nav />

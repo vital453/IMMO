@@ -1,11 +1,12 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
 import Banner from "../components/profile/Banner";
 import General from "../components/profile/General";
 import { Footer } from "../components/Footer";
+import { useLocation } from "react-router";
 
 export default function Profile() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -14,6 +15,11 @@ export default function Profile() {
     const width = window.innerWidth;
     setWidth(width);
   };
+  const {pathname} = useLocation();
+    
+  useEffect(()=>{
+      window.scroll(0,0)
+  },[pathname])
   window.addEventListener("resize", updateScreen);
   if (width < 500) {
     return (

@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
+import { useLocation } from 'react-router-dom'
 import { MdOutlinePermContactCalendar } from "react-icons/md";
 import { BiSearch, BiFilter, BiSolidHomeAlt2 } from "react-icons/bi";
 import { BsStar, BsBookmark, BsArrowsAngleExpand } from "react-icons/bs";
@@ -76,6 +77,12 @@ export default function Home() {
     const width = window.innerWidth;
     setWidth(width);
   };
+  const {pathname} = useLocation();
+    
+  useEffect(()=>{
+      window.scroll(0,0)
+  },[pathname])
+
   window.addEventListener("resize", updateScreen);
   if (width < 500) {
     return (

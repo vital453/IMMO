@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/jsx-key */
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Categotydata } from "./Home";
 import { fn5 } from "../../public";
 import {
@@ -16,7 +16,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { BiSolidHomeAlt2 } from "react-icons/bi";
 import { ImPower } from "react-icons/im";
 import { GiWaterDrop } from "react-icons/gi";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import Nav from "../components/Nav";
 import { MdAssuredWorkload } from "react-icons/md";
 import Detailhome from "../components/Detailhome";
@@ -29,6 +29,12 @@ export default function Details() {
     const width = window.innerWidth;
     setWidth(width);
   };
+  const {pathname} = useLocation();
+    
+  useEffect(()=>{
+      window.scroll(0,0)
+  },[pathname])
+
   window.addEventListener("resize", updateScreen);
   if (width < 500) {
     return (

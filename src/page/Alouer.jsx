@@ -11,18 +11,36 @@ import { useEffect, useState } from "react";
 import { Categotydata } from "./Home";
 import Card from "../components/Card";
 import { Footer } from "../components/Footer";
-import { useLocation } from 'react-router-dom'
+import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setouvre } from "../feature/TriggerSlice";
+import { HiMenuAlt1 } from "react-icons/hi";
 
 export default function Alouer() {
   const [close, setclose] = useState(false);
-  const {pathname} = useLocation();
-    
-  useEffect(()=>{
-      window.scroll(0,0)
-  },[pathname])
+  const { pathname } = useLocation();
+  const [width, setWidth] = useState(window.innerWidth);
+  const dispatch = useDispatch();
+  const updateScreen = () => {
+    const width = window.innerWidth;
+    setWidth(width);
+  };
+  window.addEventListener("resize", updateScreen);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [pathname]);
   return (
     <div>
       <Nav />
+      {/* {width < 500 && (
+        <div
+          className="cursor-pointer shadow my-4 mx-2 w-14 h-14 bg-gray-100 flex justify-center items-center rounded-full"
+          onClick={() => dispatch(setouvre(true))}
+        >
+          <HiMenuAlt1 className="" />
+        </div>
+      )} */}
       <div className="bg-[#F7F9FB] w-full px-4 py-8 flex flex-col md:flex-row md:justify-around gap-10">
         <div className="w-full flex justify-between items-center gap-8 text-[rgb(40,71,109)]">
           <div className="relative w-full flex">

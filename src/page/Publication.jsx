@@ -14,6 +14,8 @@ import { Button } from "@material-tailwind/react";
 // import Etape1 from "../components/post/Etape1";
 import { Footer } from "../components/Footer";
 import { useLocation } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { setclickk } from "../feature/TriggerSlice";
 
 export const categorieproduct = [
   {
@@ -48,7 +50,9 @@ const steps = ["Informations de base", "Titre et description", "Coordonnées"];
 export default function Publication() {
   const [change, setchange] = useState("À lOUER");
   const [change1, setchange1] = useState(false);
-  const [clickk, setclickk] = useState(0);
+  const clickk = useSelector((state) => state.trigger.clickk);
+  const dispatch = useDispatch();
+  // const [clickk, setclickk] = useState(0);
   const [width, setWidth] = useState(window.innerWidth);
   const [selection1, setselection1] = useState(change);
   const [selection2, setselection2] = useState("Maison");
@@ -875,7 +879,7 @@ export default function Publication() {
                     data.id === clickk && "border-2 border-[#1C3452]"
                   }`}
                   onClick={() => {
-                    setclickk(i);
+                    dispatch(setclickk(i));
                     console.log(clickk, "clique");
                     console.log(i, "i sur clique");
                     console.log(change, "change");

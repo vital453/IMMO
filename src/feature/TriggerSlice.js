@@ -5,6 +5,7 @@ export const triggerSlice = createSlice({
   initialState: {
     trigg: false,
     ouverture: false,
+    clickk: 0,
   },
 
   reducers: {
@@ -14,8 +15,11 @@ export const triggerSlice = createSlice({
     setouvre: (state, { payload }) => {
       state.ouverture = payload;
     },
+    setclickk: (state, { payload }) => {
+      state.clickk = payload;
+    },
   },
 });
 
-export const { settrigg, setouvre } = triggerSlice.actions;
+export const { settrigg, setouvre, setclickk } = triggerSlice.actions;
 export default triggerSlice.reducer;

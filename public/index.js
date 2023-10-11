@@ -1,0 +1,12 @@
+export { default as fn1 } from "./fn1.jpg";
+export { default as fn2 } from "./fn2.jpg";
+export { default as fn3 } from "./fn3.jpg";
+export { default as fn4 } from "./fn4.jpg";
+export { default as fn5 } from "./fn5.jpg";
+export { default as fn6 } from "./fn6.jpg";
+export { default as screen2 } from "./screen2.jpg";
+export { default as home } from "./home.png";
+export { default as appartment } from "./appartment.png";
+export { default as building } from "./building.png";
+export { default as land } from "./land.png";
+export { default as meeting } from "./meeting.png";

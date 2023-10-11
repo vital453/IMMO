@@ -158,83 +158,83 @@ export default function Home() {
                 Recherche par ville
               </h2>
 
-              <div className="mx-auto mb-16 border-b border-red-700 w-44 dark:border-gray-400"></div>
+              <div className="mx-auto mb-0 border-b border-red-700 w-44 dark:border-gray-400"></div>
             </div>
             <div className="w-full  px-4 md:px-10">
-              <div className="flex flex-wrap justify-center items-center gap-3 family">
-                {Categotydata.map((data, i) => {
-                  return (
-                    // <Swiper
-                    //   pagination={{
-                    //     clickable: true,
-                    //   }}
-                    //   data-aos="fade-left"
-                    //   spaceBetween={20}
-                    //   //   loop={true}
-                    //   navigation
-                    //   grabCursor={true}
-                    //   //   autoplay={{ delay: 3000 }}
-                    //   onSwiper={(swiper) => console.log(swiper)}
-                    //   modules={[Navigation, Pagination, Autoplay]}
-                    //   className="h-full w-full flex "
-                    //   // onSlideChange={handlechange}
-                    // >
-                    //   <SwiperSlide
-                    //     className="h-full w-full"
-                    //     // onClick={() => {
-                    //     //   setfullimagg(content.image);
-                    //     //   setfullimag(true);
-                    //     // }}
-                    //   >
-                    //     <div className="w-full relative mb-6 overflow-hidden rounded-md shadow-md group">
-                    //       <img
-                    //         src="https://i.postimg.cc/k4r6XTkN/pexels-aviv-perets-3274903.jpg"
-                    //         className="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 h-[300px] w-full transition duration-500"
-                    //         alt=""
-                    //       />
+              <div className="flex family">
+                <Swiper
+                  pagination={{
+                    clickable: true,
+                  }}
+                  data-aos="fade-left"
+                  spaceBetween={20}
+                  //   loop={true}
+                  navigation
+                  grabCursor={true}
+                  //   autoplay={{ delay: 3000 }}
+                  onSwiper={(swiper) => console.log(swiper)}
+                  modules={[Navigation, Pagination, Autoplay]}
+                  className="h-full w-full flex "
+                  // onSlideChange={handlechange}
+                >
+                  {Categotydata.map((data, i) => {
+                    return (
+                      <SwiperSlide
+                        className="h-full w-full"
+                        // onClick={() => {
+                        //   setfullimagg(content.image);
+                        //   setfullimag(true);
+                        // }}
+                      >
+                        <div className="w-full relative mb-6 overflow-hidden rounded-xl shadow-md group">
+                          <img
+                            src="https://i.postimg.cc/k4r6XTkN/pexels-aviv-perets-3274903.jpg"
+                            className="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 h-[300px] w-full transition duration-500"
+                            alt=""
+                          />
 
-                    //       <div className="absolute inset-0 h-[300px] group-hover:bg-black opacity-50 transition duration-500 z-0"></div>
+                          <div className="absolute inset-0 h-[300px] group-hover:bg-black opacity-50 transition duration-500 z-0"></div>
 
-                    //       <div>
-                    //         <div className="absolute z-10 hidden group-hover:block top-4 right-4">
-                    //           <a
-                    //             href="#"
-                    //             className="text-white bg-orange-600 border-orange-600 rounded-full btn hover:bg-orange-700 hover:border-orange-700 btn-icon lightbox"
-                    //           >
-                    //             <svg
-                    //               xmlns="http://www.w3.org/2000/svg"
-                    //               width="16"
-                    //               height="16"
-                    //               fill="currentColor"
-                    //               className="bi bi-camera"
-                    //               viewBox="0 0 16 16"
-                    //             >
-                    //               <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"></path>
+                          <div>
+                            <div className="absolute z-10 hidden group-hover:block top-4 right-4">
+                              <a
+                                href="#"
+                                className="text-white bg-orange-600 border-orange-600 rounded-full btn hover:bg-orange-700 hover:border-orange-700 btn-icon lightbox"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16"
+                                  height="16"
+                                  fill="currentColor"
+                                  className="bi bi-camera"
+                                  viewBox="0 0 16 16"
+                                >
+                                  <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"></path>
 
-                    //               <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"></path>
-                    //             </svg>
-                    //           </a>
-                    //         </div>
+                                  <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"></path>
+                                </svg>
+                              </a>
+                            </div>
 
-                    //         <div className="absolute z-10 hidden group-hover:block bottom-4 left-4">
-                    //           <a
-                    //             href=""
-                    //             className="text-lg font-medium text-white transition duration-500 hover:text-blue-300"
-                    //           >
-                    //             Parakou
-                    //           </a>
+                            <div className="absolute z-10 hidden group-hover:block bottom-4 left-4">
+                              <a
+                                href=""
+                                className="text-lg font-medium text-white transition duration-500 hover:text-blue-300"
+                              >
+                                Parakou
+                              </a>
 
-                    //           <p className="mb-0 text-xs text-gray-300">
-                    //             lorem ipsum
-                    //           </p>
-                    //         </div>
-                    //       </div>
-                    //     </div>
-                    //   </SwiperSlide>
-                    // </Swiper>
-                    <div>ab</div>
-                  );
-                })}
+                              <p className="mb-0 text-xs text-gray-300">
+                                lorem ipsum
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                      // <div>ab</div>
+                    );
+                  })}
+                </Swiper>
               </div>
             </div>
           </div>

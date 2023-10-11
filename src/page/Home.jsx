@@ -188,7 +188,7 @@ export default function Home() {
                       >
                         <div className="w-full relative mb-6 overflow-hidden rounded-xl shadow-md group">
                           <img
-                            src="https://i.postimg.cc/k4r6XTkN/pexels-aviv-perets-3274903.jpg"
+                            src="https://i.postimg.cc/LXRP3yN9/pexels-michael-block-3225517.jpg"
                             className="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 h-[300px] w-full transition duration-500"
                             alt=""
                           />
@@ -248,7 +248,7 @@ export default function Home() {
               Recommander pour vous !
             </h2>
 
-            <div className="mx-auto mb-16 border-b border-red-700 w-44 dark:border-gray-400"></div>
+            <div className="mx-auto mb-0 border-b border-red-700 w-44 dark:border-gray-400"></div>
           </div>
 
           <div className="w-[100%] horiz family">
@@ -280,7 +280,7 @@ export default function Home() {
                 Recherche par ville
               </h2>
 
-              <div className="mx-auto mb-16 border-b border-red-700 w-44 dark:border-gray-400"></div>
+              <div className="mx-auto mb-0 border-b border-red-700 w-44 dark:border-gray-400"></div>
             </div>
             <div className="w-full  px-4 md:px-10">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:px-32 family">
@@ -289,7 +289,7 @@ export default function Home() {
                   return (
                     <div className="w-full relative mb-6 overflow-hidden rounded-md shadow-md group">
                       <img
-                        src="https://i.postimg.cc/LXRP3yN9/pexels-michael-block-3225517.jpg "
+                        src="https://i.postimg.cc/LXRP3yN9/pexels-michael-block-3225517.jpg"
                         className="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 h-[300px] w-full transition duration-500"
                         alt=""
                       />
@@ -595,7 +595,7 @@ export default function Home() {
                 Recommander pour vous !
               </h2>
 
-              <div className="mx-auto mb-16 border-b border-red-700 w-44 dark:border-gray-400"></div>
+              <div className="mx-auto mb-0 border-b border-red-700 w-44 dark:border-gray-400"></div>
             </div>
             <div className="w-full px-4 md:px-10">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:px-32 family">

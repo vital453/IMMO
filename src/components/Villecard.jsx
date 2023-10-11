@@ -1,6 +1,6 @@
 export default function Villecard() {
   return (
-    <div className="w-32 h-24 rounded-xl flex justify-center items-center relative cursor-pointer family">
+    <div className="w-full h-full rounded-xl flex justify-center items-center relative cursor-pointer family">
       <img
         src="https://images.unsplash.com/photo-1608914981498-5b8431aa92b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
         alt=""

@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 
 import {
   Navigation,
-  Pagination,
+  Pagination, 
   Scrollbar,
   A11y,
   Autoplay,

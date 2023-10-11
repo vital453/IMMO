@@ -116,14 +116,14 @@ export default function Alouer() {
         </div>
       </div>
       <div className="w-full px-4 flex flex-col">
-        <div className="w-full flex justify-center items-start flex-col space-y-4 mt-4">
+        <div className="w-full md:px-32 flex justify-center items-start flex-col space-y-4 mt-4">
           <span className="text-[#1C3452] text-3xl font-semibold capitalize">
             Appartement à louer
           </span>
           <hr className="w-full fit" />
         </div>
         <div className="w-full mt-10">
-          <div className="flex flex-wrap justify-start items-start gap-3 family">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:px-32 family">
             {Categotydata.map((data, i) => {
               return <Card key={i} />;
             })}

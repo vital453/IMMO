@@ -17,7 +17,7 @@ export default function Avendre() {
   return (
     <div>
     <Nav />
-    <div className="bg-[#F7F9FB] w-full px-4 py-8 flex flex-col md:flex-row md:justify-around gap-10">
+    <div className="bg-[#F7F9FB] w-full px-4 py-8 flex flex-col  md:flex-row md:justify-around gap-10">
       <div className="w-full flex justify-between items-center gap-8 text-[rgb(40,71,109)]">
         <div className="relative w-full flex">
           <input
@@ -117,14 +117,14 @@ export default function Avendre() {
       </div>
     </div>
     <div className="w-full px-4 flex flex-col">
-      <div className="w-full flex justify-center items-start flex-col space-y-4 mt-4">
+      <div className="w-full flex md:px-32 justify-center items-start flex-col space-y-4 mt-4">
         <span className="text-[#1C3452] text-3xl font-semibold capitalize">
           Appartement à vendre
         </span>
         <hr className="w-full fit" />
       </div>
       <div className="w-full mt-10">
-        <div className="flex flex-wrap justify-start items-start gap-3 family">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:px-32 family">
           {Categotydata.map((data, i) => {
             return <Card key={i} />;
           })}

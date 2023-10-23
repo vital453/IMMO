@@ -116,7 +116,7 @@ export default function Publication() {
   };
   window.addEventListener("resize", updateScreen);
   return (
-    <div className="family">
+    <div className="select-none family">
       <Nav />
       {change1 ? (
         // <div className="w-full">
@@ -357,7 +357,7 @@ export default function Publication() {
         // </div>
         <>
           <div
-            className={`w-full h-full p-3  flex justify-center items-center bg-transparent`}
+            className={`w-full h-full p-3  flex justify-center select-none items-center bg-transparent`}
           >
             <div className="mt-2 mb-8 w-full select-none">
               <h4 className="px-2 text-xl font-bold mb-10 text-navy-700 dark:text-white">
@@ -876,7 +876,7 @@ export default function Publication() {
                 <div
                   key={i}
                   className={`w-[45%] h-48 cursor-pointer md:w-40 flex justify-center items-center px-2 py-2 flex-col space-y-4 border-2 border-[#C2D1E7] ${
-                    data.id === clickk && "border-2 border-[#1C3452]"
+                    data.id === clickk && "border-2 border-[#1f4069]"
                   }`}
                   onClick={() => {
                     dispatch(setclickk(i));

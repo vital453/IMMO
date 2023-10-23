@@ -1,5 +1,5 @@
 {
-  "name": "booking_app2",
+  "name": "IMMO",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -44,7 +44,8 @@
     "styled-components": "^5.3.11",
     "swiper": "^10.2.0",
     "tailwindcss-rtl": "^0.9.0",
-    "tw-elements": "^1.0.0"
+    "tw-elements": "^1.0.0",
+    "use-react-countries": "^1.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

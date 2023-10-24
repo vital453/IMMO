@@ -68,6 +68,28 @@ export const Categotydata = [
     image: screen2,
   },
 ];
+export const data2 = [
+  {
+    icon: "aa.jpg",
+    title: "Tous",
+    image: fn1,
+  },
+  {
+    icon: "ae.jpg",
+    title: "Anniversaire",
+    image: fn2,
+  },
+  {
+    icon: "ar.jpg",
+    title: "Atelier",
+    image: fn3,
+  },
+  {
+    icon: "at.jpg",
+    title: "Baptême",
+    image: fn4,
+  },
+];
 
 export default function Home() {
   const [width, setWidth] = useState(window.innerWidth);

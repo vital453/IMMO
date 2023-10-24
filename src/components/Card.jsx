@@ -11,7 +11,7 @@ export default function Card() {
 
   return (
     <div
-      className="w-full h-[360px] bg-[rgb(245, 245, 245)] flex flex-col justify-start items-start mb-6 rounded-xl shadow cursor-pointer"
+      className="w-full h-[360px] bg-[rgb(245,245,245)] flex flex-col justify-start items-start mb-6 rounded-xl shadow cursor-pointer"
       onClick={() => navigate("/detail")}
     >
       <div className="h-[50%] w-full relative">

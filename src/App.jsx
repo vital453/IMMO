@@ -15,6 +15,8 @@ import Avendre from "./page/Avendre";
 import Publication from "./page/Publication";
 import Societe from "./page/Societe";
 import Notfoud from "./page/Notfoud";
+import Agence from "./page/Agence";
+import Details_agence from "./page/Details_agence";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -34,6 +36,8 @@ function App() {
           <Route path="/service" element={<Post />} />
           <Route path="/historique" element={<Historique />} />
           <Route path="/societe" element={<Societe />} />
+          <Route path="/agencies" element={<Agence />} />
+          <Route path="/agence/:id" element={<Details_agence />} />
           {/* <Route path='*' exact={true} component={<Notfoud />} /> */}
           <Route path="notfound" element={<Notfoud />} />
           <Route path="*" element={<Navigate to="/notfound" replace />} />

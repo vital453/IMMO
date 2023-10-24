@@ -14,6 +14,10 @@ module.exports = withMT({
   ],
   theme: {
     extend: {
+      flex: {
+        '2': '2 2 0%',
+        '3': '3 3 0%'
+      },
       width: {
         "1p": "1%",
         "2p": "2%",

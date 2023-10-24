@@ -1,0 +1,1 @@
+export { default as picture } from "../assets/1582.git";

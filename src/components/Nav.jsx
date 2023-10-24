@@ -56,6 +56,10 @@ export default function Nav() {
       link: "/publication",
       title: "Publier une annonce",
     },
+    {
+      link: "/agencies",
+      title: "Agence certifié",
+    },
     // {
     //   link: "/contact",
     //   icon: MdOutlinePermContactCalendar,

@@ -20,7 +20,7 @@ const currentYear = new Date().getFullYear();
 
 export function Footer() {
   return (
-    <footer className="relative w-full bg-white pt-4">
+    <footer className="relative w-full bg-white pt-4 ">
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
           <Typography variant="h5" className="mb-6">
@@ -64,7 +64,7 @@ export function Footer() {
             <Typography
               as="a"
               href="#"
-              className="opacity-80 transition-opacity hover:opacity-100"
+              className="opacity-80 transition-opacity hover:opacity-100 no-underline"
             >
               <svg
                 className="h-5 w-5"
@@ -82,7 +82,7 @@ export function Footer() {
             <Typography
               as="a"
               href="#"
-              className="opacity-80 transition-opacity hover:opacity-100"
+              className="opacity-80 transition-opacity hover:opacity-100 no-underline"
             >
               <svg
                 className="h-5 w-5"
@@ -100,7 +100,7 @@ export function Footer() {
             <Typography
               as="a"
               href="#"
-              className="opacity-80 transition-opacity hover:opacity-100"
+              className="opacity-80 transition-opacity hover:opacity-100 no-underline"
             >
               <svg
                 className="h-5 w-5"
@@ -114,7 +114,7 @@ export function Footer() {
             <Typography
               as="a"
               href="#"
-              className="opacity-80 transition-opacity hover:opacity-100"
+              className="opacity-80 transition-opacity hover:opacity-100 no-underline"
             >
               <svg
                 className="h-5 w-5"
@@ -132,7 +132,7 @@ export function Footer() {
             <Typography
               as="a"
               href="#"
-              className="opacity-80 transition-opacity hover:opacity-100"
+              className="opacity-80 transition-opacity hover:opacity-100 no-underline"
             >
               <svg
                 className="h-5 w-5"

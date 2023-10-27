@@ -16,8 +16,8 @@ export default function Agence_card({ data }) {
         <span className="w-full truncate font-semibold text-xl">Agence Name</span>
         <span className="w-full truncate">Adresse de l'agence</span>
       </div>
-      <div className="w-1/4">
-        <img src={data.image} alt="" className="w-full h-full object-cover rounded-md" />
+      <div className="w-1/4 h-full">
+        <img src={data.image} alt="" className="w-full h-full object-fill rounded-md" />
       </div>
     </div>
     </Link>

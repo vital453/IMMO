@@ -206,7 +206,7 @@ export default function Home() {
                   className="h-full w-full flex "
                   // onSlideChange={handlechange}
                 >
-                  {Categotydata.map((data, i) => {
+                  {data2.map((data, i) => {
                     return (
                       <SwiperSlide
                         className="h-full w-full"
@@ -314,7 +314,7 @@ export default function Home() {
             <div className="w-full  px-4 md:px-10">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:px-32 family">
                 {/* <div className="flex flex-wrap justify-center items-center gap-3 family"> */}
-                {Categotydata.map((data, i) => {
+                {data2.map((data, i) => {
                   return (
                     <div className="w-full relative mb-6 overflow-hidden rounded-md shadow-md group">
                       <img

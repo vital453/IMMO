@@ -163,7 +163,7 @@ export default function Hero() {
               Profile
             </ListItem>
           </Link>
-          <Link
+          {/* <Link
             to={"/"}
             className="no-underline text-black-color"
             onClick={() => dispatch(setouvre(false))}
@@ -185,7 +185,7 @@ export default function Hero() {
               </ListItemPrefix>
               Settings
             </ListItem>
-          </Link>
+          </Link> */}
           <Link
             to={"/login"}
             className="no-underline text-black-color"

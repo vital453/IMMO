@@ -5,8 +5,10 @@ export const triggerSlice = createSlice({
   initialState: {
     trigg: false,
     ouverture: false,
-    clickk: 0,
+    clickk: 1,
     id: 0,
+    date_actu: "",
+
   },
 
   reducers: {
@@ -22,8 +24,12 @@ export const triggerSlice = createSlice({
     setid: (state, { payload }) => {
       state.id = payload;
     },
+    setdate: (state, { payload }) => {
+      state.date_actu = payload;
+      localStorage.setItem("dateActu", JSON.stringify(payload));
+    },
   },
 });
 
-export const { settrigg, setouvre, setclickk, setid } = triggerSlice.actions;
+export const { settrigg, setouvre, setclickk, setid, setdate } = triggerSlice.actions;
 export default triggerSlice.reducer;

@@ -11,10 +11,10 @@ const Banner = () => {
       {/* Background and profile */}
       <div
         className="relative mt-1 flex h-32 w-full justify-center rounded-xl bg-cover"
-        style={{ backgroundImage: `url(${banner})` }}
+        style={{ backgroundImage: `url(${import.meta.env.VITE_BASE_URL}uploads/banner.png)` }}
       >
         <div className="absolute -bottom-12 flex h-[87px] w-[87px] items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700 ">
-          <img className="h-full w-full rounded-full" src={avatar} alt="" />
+          <img className="h-full w-full rounded-full" src={`${import.meta.env.VITE_BASE_URL}uploads/avatar9.png`} alt="" />
         </div>
         <div
           className="bg-green-700 w-8 h-8 rounded-full flex items-center justify-center cursor-pointer absolute -bottom-14 left-44"

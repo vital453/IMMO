@@ -10,14 +10,14 @@ import { setid } from "../feature/TriggerSlice";
 export default function Agence_card({ data }) {
   const dispatch = useDispatch();
   return (
-    <Link to={`/agence/${3}`} className="no-underline text-neutralcolors" onClick={()=>dispatch(setid(2))}>
+    <Link to={`/agence/${3}`} className="no-underline text-neutralcolors w-full h-32" onClick={()=>dispatch(setid(2))}>
     <div className="w-full h-32 bg-[rgb(255,255,255)] flex justify-between items-start rounded-xl shadow cursor-pointer px-4 py-4">
       <div className="flex flex-col justify-center items-start space-y-4 w-3/4">
         <span className="w-full truncate font-semibold text-xl">Agence Name</span>
         <span className="w-full truncate">Adresse de l'agence</span>
       </div>
-      <div className="w-1/4 h-full">
-        <img src={data.image} alt="" className="w-full h-full object-fill rounded-md" />
+      <div className="w-16 h-16 rounded-full">
+        <img src={data.image} alt="" className="w-full h-full object-cover rounded-full" />
       </div>
     </div>
     </Link>

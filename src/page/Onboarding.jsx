@@ -168,7 +168,7 @@ export const Screen1 = () => {
   window.addEventListener("resize", updateScreen);
   return (
     <div className="h-full flex flex-col justify-start items-center">
-      <img src="fn3.jpg" alt="" className="w-full h-[60%] object-cover" />
+      <img src={`${import.meta.env.VITE_BASE_URL}uploads/fn3.jpg`} alt="" className="w-full h-[60%] object-cover" />
       <div className="flex-row justify-center items-center px-6 py-4 space-y-4">
         <div>
           <span className="text-2xl text-[#555] text-center tracking-wider family ">
@@ -195,7 +195,7 @@ export const Screen2 = () => {
   window.addEventListener("resize", updateScreen);
   return (
     <div className="h-full flex flex-col justify-start items-center">
-      <img src="fn4.jpg" alt="" className="w-full h-[60%] object-cover" />
+      <img src={`${import.meta.env.VITE_BASE_URL}uploads/fn4.jpg`} alt="" className="w-full h-[60%] object-cover" />
       <div className="flex-row justify-center items-center px-6 py-4 space-y-4">
         <div>
           <span className="text-2xl text-[#555] text-center tracking-wider family ">
@@ -226,7 +226,7 @@ export const Screen3 = () => {
   window.addEventListener("resize", updateScreen);
   return (
     <div className="h-full flex flex-col justify-start items-center">
-      <img src="fn5.jpg" alt="" className="w-full h-[60%] object-cover" />
+      <img src={`${import.meta.env.VITE_BASE_URL}uploads/fn5.jpg`} alt="" className="w-full h-[60%] object-cover" />
       <div className="flex-row justify-center items-center px-6 py-4 space-y-4">
         <div>
           <span className="text-2xl text-[#555] text-center tracking-wider family ">

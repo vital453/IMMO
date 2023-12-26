@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/jsx-key */
@@ -20,20 +21,69 @@ import { useLocation, useNavigate } from "react-router";
 import Nav from "../components/Nav";
 import { MdAssuredWorkload } from "react-icons/md";
 import Detailhome from "../components/Detailhome";
+import Axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { recupmaison_apparte } from "../feature/postSlice";
+import { formatPrice } from "../lib/format";
+import { recupcategory } from "../feature/categorySlice";
+
 export default function Details() {
   console.log(Categotydata);
   const navigate = useNavigate();
   const [width, setWidth] = useState(window.innerWidth);
-  const [image, setimage] = useState("fn5.jpg");
   const updateScreen = () => {
     const width = window.innerWidth;
     setWidth(width);
   };
-  const {pathname} = useLocation();
-    
-  useEffect(()=>{
-      window.scroll(0,0)
-  },[pathname])
+  const { pathname } = useLocation();
+  console.log(String(pathname).split("/")[2]);
+  const dispatch = useDispatch();
+
+  const maison_apparte = useSelector((state) => state.post.maison_apparte);
+  const categories = useSelector((state) => state.category.categories);
+  const [image, setimage] = useState(
+    `${import.meta.env.VITE_BASE_URL}${
+      maison_apparte[0] &&
+      maison_apparte.filter((e) => e.id == String(pathname).split("/")[2])[0]
+        .picture1
+    }`
+  );
+
+  const get_all_maison_apparte = () => {
+    // console.log(`${process.env.baseurl}` + "valuer enviro");
+    Axios.get(
+      `${import.meta.env.VITE_BASE_URL}get_all_maison_apparte`,
+      {}
+    ).then((response) => {
+      if (response.data[0]) {
+        console.log(response.data);
+        dispatch(recupmaison_apparte(response.data));
+        // localStorage.setItem("change_version", "non");
+      }
+    });
+  };
+
+  const get_category = () => {
+    // console.log(`${process.env.baseurl}` + "valuer enviro");
+    Axios.get(`${import.meta.env.VITE_BASE_URL}get_category`, {}).then(
+      (response) => {
+        if (response.data[0]) {
+          console.log(response.data);
+          dispatch(recupcategory(response.data));
+          // localStorage.setItem("change_version", "non");
+        }
+      }
+    );
+  };
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [pathname]);
+
+  useEffect(() => {
+    get_all_maison_apparte();
+    get_category();
+  }, []);
 
   window.addEventListener("resize", updateScreen);
   if (width < 500) {
@@ -245,7 +295,7 @@ export default function Details() {
               className="h-full w-full object-cover"
             />
             <div className="absolute top-1 p-4 flex justify-between items-center w-full ">
-              <div className="h-10 w-10  backdrop-blur-xl flex justify-center items-center rounded-full space-x-1 got">
+              <div className="h-10 w-10  backdrop-blur-xl flex justify-center items-center rounded-full space-x-1 cursor-pointer got">
                 <div
                   className="text-xl text-yellow-400/75"
                   onClick={() => navigate("/home")}
@@ -253,7 +303,7 @@ export default function Details() {
                   <FiArrowLeft />
                 </div>
               </div>
-              <div className="h-10 w-10  backdrop-blur-xl flex justify-center items-center rounded-full space-x-1 got">
+              <div className="h-10 w-10  backdrop-blur-xl flex justify-center items-center rounded-full space-x-1 cursor-pointer got">
                 <div className="text-xl text-yellow-400/75">
                   <BsBookmark />
                 </div>
@@ -261,134 +311,198 @@ export default function Details() {
             </div>
           </div>
           <div className="w-full bg-white horiz">
-            <div
-              className="horicontent rounded-md"
-              onClick={() =>
-                setimage(
-                  "fn5.jpg"
-                )
-              }
-            >
-              <img
-                className="object-cover w-full h-full rounded-md"
-                src="fn5.jpg"
-                alt=""
-              />
-            </div>
-            <div
-              className="horicontent rounded-md"
-              onClick={() =>
-                setimage(
-                  "https://images.unsplash.com/photo-1556020685-ae41abfc9365?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
-                )
-              }
-            >
-              <img
-                className="object-cover w-full h-full rounded-md"
-                src="https://images.unsplash.com/photo-1556020685-ae41abfc9365?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
-                alt=""
-              />
-            </div>
-            <div
-              className="horicontent rounded-md"
-              onClick={() =>
-                setimage(
-                  "https://images.unsplash.com/photo-1630699375895-fe5996d163ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                )
-              }
-            >
-              <img
-                className="object-cover w-full h-full rounded-md"
-                src="https://images.unsplash.com/photo-1630699375895-fe5996d163ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt=""
-              />
-            </div>
-            <div
-              className="horicontent rounded-md"
-              onClick={() =>
-                setimage(
-                  "https://images.unsplash.com/photo-1534595038511-9f219fe0c979?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fGFwcGFydGVtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
-                )
-              }
-            >
-              <img
-                className="object-cover w-full h-full rounded-md"
-                src="https://images.unsplash.com/photo-1534595038511-9f219fe0c979?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fGFwcGFydGVtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
-            </div>
-            <div
-              className="horicontent rounded-md"
-              onClick={() =>
-                setimage(
-                  "https://images.unsplash.com/photo-1560185009-5bf9f2849488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                )
-              }
-            >
-              <img
-                className="object-cover w-full h-full rounded-md"
-                src="https://images.unsplash.com/photo-1560185009-5bf9f2849488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt=""
-              />
-            </div>
-            <div
-              className="horicontent rounded-md"
-              onClick={() =>
-                setimage(
-                  "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
-                )
-              }
-            >
-              <img
-                className="object-cover w-full h-full rounded-md"
-                src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
-                alt=""
-              />
-            </div>
-            <div
-              className="horicontent rounded-md"
-              onClick={() =>
-                setimage(
-                  "https://images.unsplash.com/photo-1622372738946-62e02505feb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2032&q=80"
-                )
-              }
-            >
-              <img
-                className="object-cover w-full h-full rounded-md"
-                src="https://images.unsplash.com/photo-1622372738946-62e02505feb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2032&q=80"
-                alt=""
-              />
-            </div>
-            <div
-              className="horicontent rounded-md"
-              onClick={() =>
-                setimage(
-                  "https://images.unsplash.com/flagged/photo-1573168710465-7f7da9a23a15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                )
-              }
-            >
-              <img
-                className="object-cover w-full h-full rounded-md"
-                src="https://images.unsplash.com/flagged/photo-1573168710465-7f7da9a23a15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt=""
-              />
-            </div>
-            <div
-              className="horicontent rounded-md"
-              onClick={() =>
-                setimage(
-                  "https://plus.unsplash.com/premium_photo-1675615949585-36aaf4cb778d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2012&q=80"
-                )
-              }
-            >
-              <img
-                className="object-cover w-full h-full rounded-md"
-                src="https://plus.unsplash.com/premium_photo-1675615949585-36aaf4cb778d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2012&q=80"
-                alt=""
-              />
-            </div>
+            {maison_apparte[0] &&
+              maison_apparte.filter(
+                (e) => e.id == String(pathname).split("/")[2]
+              )[0].picture1 != null && (
+                <div
+                  className="horicontent rounded-md"
+                  onClick={() =>
+                    setimage(
+                      `${import.meta.env.VITE_BASE_URL}${
+                        maison_apparte[0] &&
+                        maison_apparte.filter(
+                          (e) => e.id == String(pathname).split("/")[2]
+                        )[0].picture1
+                      }`
+                    )
+                  }
+                >
+                  <img
+                    className="object-cover w-full h-full rounded-md"
+                    src={`${import.meta.env.VITE_BASE_URL}${
+                      maison_apparte[0] &&
+                      maison_apparte.filter(
+                        (e) => e.id == String(pathname).split("/")[2]
+                      )[0].picture1
+                    }`}
+                    alt=""
+                  />
+                </div>
+              )}
+
+            {maison_apparte[0] &&
+              maison_apparte.filter(
+                (e) => e.id == String(pathname).split("/")[2]
+              )[0].picture2 != null && (
+                <div
+                  className="horicontent rounded-md"
+                  onClick={() =>
+                    setimage(
+                      `${import.meta.env.VITE_BASE_URL}${
+                        maison_apparte[0] &&
+                        maison_apparte.filter(
+                          (e) => e.id == String(pathname).split("/")[2]
+                        )[0].picture2
+                      }`
+                    )
+                  }
+                >
+                  <img
+                    className="object-cover w-full h-full rounded-md"
+                    src={`${import.meta.env.VITE_BASE_URL}${
+                      maison_apparte[0] &&
+                      maison_apparte.filter(
+                        (e) => e.id == String(pathname).split("/")[2]
+                      )[0].picture2
+                    }`}
+                    alt=""
+                  />
+                </div>
+              )}
+
+            {maison_apparte[0] &&
+              maison_apparte.filter(
+                (e) => e.id == String(pathname).split("/")[2]
+              )[0].picture3 != null && (
+                <div
+                  className="horicontent rounded-md"
+                  onClick={() =>
+                    setimage(
+                      `${import.meta.env.VITE_BASE_URL}${
+                        maison_apparte[0] &&
+                        maison_apparte.filter(
+                          (e) => e.id == String(pathname).split("/")[2]
+                        )[0].picture3
+                      }`
+                    )
+                  }
+                >
+                  <img
+                    className="object-cover w-full h-full rounded-md"
+                    src={`${import.meta.env.VITE_BASE_URL}${
+                      maison_apparte[0] &&
+                      maison_apparte.filter(
+                        (e) => e.id == String(pathname).split("/")[2]
+                      )[0].picture3
+                    }`}
+                    alt=""
+                  />
+                </div>
+              )}
+
+            {maison_apparte[0] &&
+              maison_apparte.filter(
+                (e) => e.id == String(pathname).split("/")[2]
+              )[0].picture4 != null && (
+                <div
+                  className="horicontent rounded-md"
+                  onClick={() =>
+                    setimage(
+                      `${import.meta.env.VITE_BASE_URL}${
+                        maison_apparte[0] &&
+                        maison_apparte.filter(
+                          (e) => e.id == String(pathname).split("/")[2]
+                        )[0].picture4
+                      }`
+                    )
+                  }
+                >
+                  <img
+                    className="object-cover w-full h-full rounded-md"
+                    src={`${import.meta.env.VITE_BASE_URL}${
+                      maison_apparte[0] &&
+                      maison_apparte.filter(
+                        (e) => e.id == String(pathname).split("/")[2]
+                      )[0].picture4
+                    }`}
+                    alt=""
+                  />
+                </div>
+              )}
+
+            {maison_apparte[0] &&
+              maison_apparte.filter(
+                (e) => e.id == String(pathname).split("/")[2]
+              )[0].picture5 != null && (
+                <div
+                  className="horicontent rounded-md"
+                  onClick={() =>
+                    setimage(
+                      `${import.meta.env.VITE_BASE_URL}${
+                        maison_apparte[0] &&
+                        maison_apparte.filter(
+                          (e) => e.id == String(pathname).split("/")[2]
+                        )[0].picture5
+                      }`
+                    )
+                  }
+                >
+                  <img
+                    className="object-cover w-full h-full rounded-md"
+                    src={`${import.meta.env.VITE_BASE_URL}${
+                      maison_apparte[0] &&
+                      maison_apparte.filter(
+                        (e) => e.id == String(pathname).split("/")[2]
+                      )[0].picture5
+                    }`}
+                    alt=""
+                  />
+                </div>
+              )}
+
+            {maison_apparte[0] &&
+              maison_apparte.filter(
+                (e) => e.id == String(pathname).split("/")[2]
+              )[0].picture6 != null && (
+                <div
+                  className="horicontent rounded-md"
+                  onClick={() =>
+                    setimage(
+                      `${import.meta.env.VITE_BASE_URL}${
+                        maison_apparte[0] &&
+                        maison_apparte.filter(
+                          (e) => e.id == String(pathname).split("/")[2]
+                        )[0].picture6
+                      }`
+                    )
+                  }
+                >
+                  <img
+                    className="object-cover w-full h-full rounded-md"
+                    src={`${import.meta.env.VITE_BASE_URL}${
+                      maison_apparte[0] &&
+                      maison_apparte.filter(
+                        (e) => e.id == String(pathname).split("/")[2]
+                      )[0].picture6
+                    }`}
+                    alt=""
+                  />
+                </div>
+              )}
           </div>
-          <Detailhome choose={false} />
+          {maison_apparte[0] && (
+            <Detailhome
+              choose={false}
+              data={
+                maison_apparte[0] &&
+                maison_apparte.filter(
+                  (e) => e.id == String(pathname).split("/")[2]
+                )[0]
+              }
+              category={categories}
+            />
+          )}
         </div>
       </div>
     );
@@ -401,30 +515,75 @@ export default function Details() {
             <div className="flex flex-col justify-center items-start space-y-3">
               <div className="">
                 <span className="text-[#1C3452] text-3xl font-semibold">
-                  Nom de l'appartement
+                  {maison_apparte[0] &&
+                    maison_apparte.filter(
+                      (e) => e.id == String(pathname).split("/")[2]
+                    )[0].nom}
                 </span>
               </div>
               <div className="">
-                <span className="text-gray-400">2 chambres </span>
-                <span className="text-gray-400">| 120 m²</span>
+                <span className="text-gray-400">
+                  {maison_apparte[0] &&
+                    maison_apparte.filter(
+                      (e) => e.id == String(pathname).split("/")[2]
+                    )[0].nombre_chambre}{" "}
+                  chambres{" "}
+                </span>
+                <span className="text-gray-400">
+                  | {"   "}
+                  {maison_apparte[0] &&
+                    maison_apparte.filter(
+                      (e) => e.id == String(pathname).split("/")[2]
+                    )[0].dimmenssion}{" "}
+                  m²
+                </span>
               </div>
               <div className="">
-                <span className="text-[#263d58] text-xl">localisation</span>
+                <span className="text-[#263d58] text-xl">
+                  {maison_apparte[0] &&
+                    maison_apparte.filter(
+                      (e) => e.id == String(pathname).split("/")[2]
+                    )[0].adresse_location}
+                </span>
               </div>
             </div>
             <div className="space-y-4">
               <div className="">
                 <span className="text-[#1C3452] text-3xl font-semibold">
-                  1.500.000 FCFA
+                  {formatPrice(
+                    maison_apparte[0] &&
+                      maison_apparte.filter(
+                        (e) => e.id == String(pathname).split("/")[2]
+                      )[0].loyer
+                  )}
                 </span>
               </div>
               <div className="px-3 cursor-pointer py-2 no-underline rounded-xl border-1 border-[rgb(61,108,169)] flex justify-center items-center space-x-3">
                 <MdAssuredWorkload className="text-xl" />
-                <span>Assurer ce bien pour 150.000 FCFA</span>
+                <span>
+                  Assurer ce bien pour{" "}
+                  {formatPrice(
+                    maison_apparte[0] &&
+                      maison_apparte.filter(
+                        (e) => e.id == String(pathname).split("/")[2]
+                      )[0].loyer
+                  )}
+                </span>
               </div>
             </div>
           </div>
-          <Detailhome choose={true} />
+          {maison_apparte[0] && (
+            <Detailhome
+              choose={true}
+              data={
+                maison_apparte[0] &&
+                maison_apparte.filter(
+                  (e) => e.id == String(pathname).split("/")[2]
+                )[0]
+              }
+              category={categories}
+            />
+          )}
         </div>
       </div>
     );

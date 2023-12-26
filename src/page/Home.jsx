@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/jsx-key */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
-import { useLocation } from 'react-router-dom'
+import { useLocation } from "react-router-dom";
 import { MdOutlinePermContactCalendar } from "react-icons/md";
 import { BiSearch, BiFilter, BiSolidHomeAlt2 } from "react-icons/bi";
 import { BsStar, BsBookmark, BsArrowsAngleExpand } from "react-icons/bs";
@@ -18,6 +19,8 @@ import { Footer } from "../components/Footer";
 import Villecard from "../components/Villecard";
 import Hero from "../components/Hero";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Axios from "axios";
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -29,6 +32,9 @@ import {
   A11y,
   Autoplay,
 } from "swiper/modules";
+import { useDispatch, useSelector } from "react-redux";
+import { recupmaison_apparte } from "../feature/postSlice";
+import { picture1, picture2, picture3, picture4 } from "../assets";
 
 // data
 export const Categotydata = [
@@ -70,24 +76,20 @@ export const Categotydata = [
 ];
 export const data2 = [
   {
-    icon: "aa.jpg",
-    title: "Tous",
-    image: fn1,
+    title: "Cotonou",
+    image: picture1,
   },
   {
-    icon: "ae.jpg",
-    title: "Anniversaire",
-    image: fn2,
+    title: "Natitingou",
+    image: picture2,
   },
   {
-    icon: "ar.jpg",
-    title: "Atelier",
-    image: fn3,
+    title: "Parakou",
+    image: picture3,
   },
   {
-    icon: "at.jpg",
-    title: "Baptême",
-    image: fn4,
+    title: "Savalou",
+    image: picture4,
   },
 ];
 
@@ -99,11 +101,30 @@ export default function Home() {
     const width = window.innerWidth;
     setWidth(width);
   };
-  const {pathname} = useLocation();
-    
-  useEffect(()=>{
-      window.scroll(0,0)
-  },[pathname])
+  const { pathname } = useLocation();
+  const dispatch = useDispatch();
+  const maison_apparte = useSelector((state) => state.post.maison_apparte);
+
+  const get_all_maison_apparte = () => {
+    // console.log(`${process.env.baseurl}` + "valuer enviro");
+    Axios.get(
+      `${import.meta.env.VITE_BASE_URL}get_all_maison_apparte`,
+      {}
+    ).then((response) => {
+      if (response.data[0]) {
+        console.log(response.data);
+        dispatch(recupmaison_apparte(response.data));
+        // localStorage.setItem("change_version", "non");
+      }
+    });
+  };
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [pathname]);
+  useEffect(() => {
+    get_all_maison_apparte();
+  }, []);
 
   window.addEventListener("resize", updateScreen);
   if (width < 500) {
@@ -184,7 +205,7 @@ export default function Home() {
           <div className="w-full">
             <div className="mx-auto max-w-7xl py-11">
               <h2 className="pb-4 text-4xl font-bold text-center text-gray-800 dark:text-gray-400">
-                Recherche par ville
+                Rechercher par ville
               </h2>
 
               <div className="mx-auto mb-0 border-b border-red-700 w-44 dark:border-gray-400"></div>
@@ -209,7 +230,7 @@ export default function Home() {
                   {data2.map((data, i) => {
                     return (
                       <SwiperSlide
-                        className="h-full w-full"
+                        className="h-full w-full cursor-pointer"
                         // onClick={() => {
                         //   setfullimagg(content.image);
                         //   setfullimag(true);
@@ -217,7 +238,8 @@ export default function Home() {
                       >
                         <div className="w-full relative mb-6 overflow-hidden rounded-xl shadow-md group">
                           <img
-                            src="https://i.postimg.cc/LXRP3yN9/pexels-michael-block-3225517.jpg"
+                            src={data.image}
+                            // src="https://i.postimg.cc/LXRP3yN9/pexels-michael-block-3225517.jpg"
                             className="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 h-[300px] w-full transition duration-500"
                             alt=""
                           />
@@ -250,7 +272,7 @@ export default function Home() {
                                 href=""
                                 className="text-lg font-medium text-white transition duration-500 hover:text-blue-300"
                               >
-                                Parakou
+                                {data.title}
                               </a>
 
                               <p className="mb-0 text-xs text-gray-300">
@@ -274,15 +296,15 @@ export default function Home() {
           </div> */}
           <div className="mx-auto max-w-7xl py-11">
             <h2 className="pb-4 text-4xl font-bold text-center text-gray-800 dark:text-gray-400">
-              Recommander pour vous !
+              Recommandés pour vous !
             </h2>
 
             <div className="mx-auto mb-0 border-b border-red-700 w-44 dark:border-gray-400"></div>
           </div>
 
           <div className="w-[100%] horiz family">
-            {Categotydata.map((data, i) => {
-              return <Card />;
+            {maison_apparte.map((data, i) => {
+              return <Card data={data} />;
             })}
           </div>
           <div className="h-20"></div>
@@ -306,7 +328,7 @@ export default function Home() {
                 Recherche par ville
               </span> */}
               <h2 className="pb-4 text-4xl font-bold text-center text-gray-800 dark:text-gray-400">
-                Recherche par ville
+                Rechercher par ville
               </h2>
 
               <div className="mx-auto mb-0 border-b border-red-700 w-44 dark:border-gray-400"></div>
@@ -316,9 +338,9 @@ export default function Home() {
                 {/* <div className="flex flex-wrap justify-center items-center gap-3 family"> */}
                 {data2.map((data, i) => {
                   return (
-                    <div className="w-full relative mb-6 overflow-hidden rounded-md shadow-md group">
+                    <div className="w-full relative mb-6 overflow-hidden rounded-md shadow-md group cursor-pointer">
                       <img
-                        src="https://i.postimg.cc/LXRP3yN9/pexels-michael-block-3225517.jpg"
+                        src={data.image}
                         className="group-hover:origin-center group-hover:scale-110 group-hover:rotate-3 h-[300px] w-full transition duration-500"
                         alt=""
                       />
@@ -351,7 +373,7 @@ export default function Home() {
                             href=""
                             className="text-lg font-medium text-white transition duration-500 hover:text-blue-300"
                           >
-                            Parakou
+                            {data.title}
                           </a>
 
                           <p className="mb-0 text-xs text-gray-300">
@@ -621,15 +643,15 @@ export default function Home() {
                 Recherche par ville
               </span> */}
               <h2 className="pb-4 text-4xl font-bold text-center text-gray-800 dark:text-gray-400">
-                Recommander pour vous !
+                Recommandés pour vous !
               </h2>
 
               <div className="mx-auto mb-0 border-b border-red-700 w-44 dark:border-gray-400"></div>
             </div>
             <div className="w-full px-4 md:px-10">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:px-32 family">
-                {Categotydata.map((data, i) => {
-                  return <Card />;
+                {maison_apparte.map((data, i) => {
+                  return <Card data={data} />;
                 })}
               </div>
             </div>

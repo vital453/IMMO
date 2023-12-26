@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 
@@ -12,11 +13,16 @@ import {
   ListItemPrefix,
   ListItemSuffix,
   Chip,
+  MenuItem,
+  Avatar,
+  MenuHandler,
+  Menu,
 } from "@material-tailwind/react";
 import { useState } from "react";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { setouvre } from "../feature/TriggerSlice";
+import { logOutt } from "../feature/AuthSlice";
 
 export default function Hero() {
   const [open, setOpen] = useState(false);
@@ -38,7 +44,7 @@ export default function Hero() {
       <Drawer open={ouverture} onClose={() => dispatch(setouvre(false))}>
         <div className="mb-2 flex items-center justify-between p-4">
           <Typography variant="h5" color="blue-gray">
-            App Immobiliere
+            Immo
           </Typography>
           <IconButton
             variant="text"
@@ -61,6 +67,20 @@ export default function Hero() {
             </svg>
           </IconButton>
         </div>
+        {JSON.parse(localStorage.getItem("user") + "") ? (
+          <div className="w-full flex justify-center items-center">
+            <Menu>
+              <MenuHandler>
+                <Avatar
+                  variant="circular"
+                  alt="tania andrew"
+                  className="w-20 h-20 rounded-full cursor-pointer"
+                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                />
+              </MenuHandler>
+            </Menu>
+          </div>
+        ) : null}
         <List>
           <Link
             to={"/home"}
@@ -163,6 +183,52 @@ export default function Hero() {
               Profile
             </ListItem>
           </Link>
+          <Link
+            to={"/societe"}
+            className="no-underline text-black-color"
+            onClick={() => dispatch(setouvre(false))}
+          >
+            <ListItem>
+              <ListItemPrefix>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-5 w-5"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </ListItemPrefix>
+              Notre societe
+            </ListItem>
+          </Link>
+          <Link
+            to={"/mes_publication"}
+            className="no-underline text-black-color"
+            onClick={() => dispatch(setouvre(false))}
+          >
+            <ListItem>
+              <ListItemPrefix>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-5 w-5"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </ListItemPrefix>
+              Mes publication
+            </ListItem>
+          </Link>
           {/* <Link
             to={"/"}
             className="no-underline text-black-color"
@@ -212,7 +278,10 @@ export default function Hero() {
           <Link
             to={"/"}
             className="no-underline text-black-color"
-            onClick={() => dispatch(setouvre(false))}
+            onClick={() => {
+              dispatch(setouvre(false));
+              dispatch(logOutt());
+            }}
           >
             <ListItem>
               <ListItemPrefix>
@@ -253,15 +322,14 @@ export default function Hero() {
           <div className="absolute top-0 bottom-0 left-0 right-0 flex items-center bg-gray-900/75">
             <div className="z-10 max-w-6xl px-4 mx-auto ">
               <span className="text-xs font-semibold text-blue-400 uppercase">
-                La connaissance, c'est le pouvoir
+                Votre logement au bout un clic!
               </span>
               <h2 className="mt-2 mb-4 text-3xl font-bold leading-tight text-white md:text-4xl md:leading-tight lg:text-7xl lg:leading-tight g">
-                SLOGAN MARQUANT
+                SE LOGER N´A JAMAIS ETE AUSSI FACILE
               </h2>
               <p className="mb-8 text-base leading-8 text-gray-400 lg:text-xl">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam
+                La solution parfaite à tout vos problèmes de logemesnt, de
+                déménagement et besoins en immobilier en Afrique de l´Ouest.
               </p>
               <div className="items-center justify-start block gap-4 md:flex space-y-0">
                 <Link
